@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/meeting_content_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_host"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_agenda"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableStart="@drawable/icon_menu_left"
+            android:drawablePadding="10dp"
+            android:textSize="20sp"
+            android:text="@string/host"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_agenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/meeting_agenda"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_vote"
+        app:layout_constraintEnd_toStartOf="@+id/iv_issue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/iv_issue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_issue"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/meeting_topics"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_vote"
+        app:layout_constraintEnd_toStartOf="@+id/tv_file"
+        app:layout_constraintStart_toEndOf="@+id/tv_agenda"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_other_file"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/other_file"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_vote"
+        app:layout_constraintEnd_toStartOf="@+id/tv_annotation_file"
+        app:layout_constraintStart_toEndOf="@+id/iv_issue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_annotation_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_annotation_file"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/annotation_file"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_vote"
+        app:layout_constraintEnd_toStartOf="@+id/tv_member"
+        app:layout_constraintStart_toEndOf="@+id/tv_file"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_member"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/member_"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_vote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_annotation_file"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_vote"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/vote_by_ballot"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_agenda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agenda" />
+
+    <TextView
+        android:id="@+id/tv_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_draw"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/electronic_whiteboard"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/iv_issue"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agenda" />
+
+    <TextView
+        android:id="@+id/tv_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_web"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/web_surfing"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_file"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agenda" />
+
+    <TextView
+        android:id="@+id/tv_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_video"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/live_video"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_annotation_file"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agenda" />
+
+    <TextView
+        android:id="@+id/tv_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_service"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/meeting_service"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_member"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agenda" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_commonly"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_member"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableEnd="@drawable/icon_menu_right"
+            android:drawablePadding="10dp"
+            android:textSize="20sp"
+            android:text="@string/commonly_used"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

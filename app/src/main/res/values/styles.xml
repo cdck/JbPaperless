@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--PopupWindow展示和隐藏的动画-->
+    <style name="pop_animation_t_b">
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
+        <item name="android:windowExitAnimation">@anim/pophide_anim</item>
+    </style>
+    <!--PopupWindow展示和隐藏的动画-->
+    <style name="pop_animation_l_r">
+        <item name="android:windowEnterAnimation">@anim/popshow_start_end</item>
+        <item name="android:windowExitAnimation">@anim/pophide_end_start</item>
+    </style>
+</resources>

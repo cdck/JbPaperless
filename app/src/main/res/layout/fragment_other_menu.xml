@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/meeting_content_bg">
+
+    <TextView
+        android:id="@+id/tv_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_calendar"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/calendar"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_other4"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_calculator"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/calculator"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_other4"
+        app:layout_constraintEnd_toStartOf="@+id/tv_other1"
+        app:layout_constraintStart_toEndOf="@+id/tv_calendar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_other1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="其它资料"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tv_other4"
+        app:layout_constraintEnd_toStartOf="@+id/tv_other2"
+        app:layout_constraintStart_toEndOf="@+id/tv_calculator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_other2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="批注文件"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tv_other4"
+        app:layout_constraintEnd_toStartOf="@+id/tv_other3"
+        app:layout_constraintStart_toEndOf="@+id/tv_other1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_other3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="参会人员"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tv_other4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_other2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_other4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="投票表决"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_calendar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
+
+    <TextView
+        android:id="@+id/tv_other5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="电子白板"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_calculator"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
+
+    <TextView
+        android:id="@+id/tv_other6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="网页浏览"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_other1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
+
+    <TextView
+        android:id="@+id/tv_other7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="视频直播"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_other2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agenda" />
+
+    <TextView
+        android:id="@+id/tv_other8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_agenda"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="会议服务"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_other3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
