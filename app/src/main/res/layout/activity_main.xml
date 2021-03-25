@@ -19,25 +19,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:text="@string/intelligent_conference_system"
             android:textColor="@color/white"
             android:textSize="25sp" />
 
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
         <TextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:focusable="true"
-            android:clickable="true"
+            android:layout_marginEnd="20dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
+            android:text="@string/offline"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            tools:text="@string/online" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:id="@+id/ll_date"
@@ -50,7 +50,8 @@
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp">
+            android:paddingBottom="5dp"
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/tv_day"

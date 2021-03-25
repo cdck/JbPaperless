@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:text="@string/intelligent_conference_system"
             android:textColor="@color/white"
             android:textSize="25sp" />
@@ -31,7 +31,7 @@
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="20dp"
             android:padding="5dp"
             android:src="@drawable/icon_member" />
 
@@ -116,7 +116,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/meeting_message_bg"
-                android:text="会议信息"
                 android:textColor="@color/white" />
 
             <Button
@@ -126,7 +125,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_mike"
-                android:text="话筒开关"
                 android:textColor="@color/white" />
 
             <Button
@@ -134,7 +132,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/meeting_signin"
-                android:text="会议签到"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>

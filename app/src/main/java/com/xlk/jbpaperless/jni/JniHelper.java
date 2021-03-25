@@ -1751,4 +1751,26 @@ public class JniHelper {
         LogUtils.e(TAG, "查询指定id的会议 失败 id=" + id);
         return null;
     }
+
+
+    /**
+     * 判断是否连接服务器（在线）
+     * @return 是否在线
+     */
+    public boolean isOnline() {
+        boolean isonline = false;
+        byte[] bytes = queryDevicePropertiesById(InterfaceMacro.Pb_MeetDevicePropertyID.Pb_MEETDEVICE_PROPERTY_NETSTATUS_VALUE,
+                GlobalValue.localDeviceId);
+        if (bytes != null) {
+            InterfaceDevice.pbui_DeviceInt32uProperty pbui_deviceInt32uProperty = null;
+            try {
+                pbui_deviceInt32uProperty = InterfaceDevice.pbui_DeviceInt32uProperty.parseFrom(bytes);
+                int propertyval = pbui_deviceInt32uProperty.getPropertyval();
+                isonline = propertyval == 1;
+            } catch (InvalidProtocolBufferException e) {
+                e.printStackTrace();
+            }
+        }
+        return isonline;
+    }
 }

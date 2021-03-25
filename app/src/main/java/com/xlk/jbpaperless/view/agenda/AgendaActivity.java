@@ -18,10 +18,7 @@ import com.xlk.jbpaperless.R;
 import com.xlk.jbpaperless.base.BaseActivity;
 import com.xlk.jbpaperless.model.GlobalValue;
 
-import java.util.Objects;
-
 import static com.xlk.jbpaperless.App.appContext;
-import static java.security.AccessController.getContext;
 
 /**
  * @author xlk

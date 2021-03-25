@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".view.config.ConfigActivity">
+
+    <include layout="@layout/include_pager_top" />
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/rl_top"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="@drawable/topbar_bg"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_page_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:text="@string/system_settings"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="25sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_close"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:src="@drawable/icon_close" />-->
+<!--    </RelativeLayout>-->
+    <ImageView
+        android:id="@+id/dividing_line_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@drawable/dividing_line_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_top" />
+
+    <TextView
+        android:id="@+id/ntv_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/server"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividing_line_horizontal"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <LinearLayout
+        android:id="@+id/nll_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/ntv_server"
+        app:layout_constraintTop_toBottomOf="@+id/ntv_server">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/host_ip_"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edt_host_ip"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_white_bg"
+            android:padding="1dp"
+            android:textSize="20sp"
+            tools:text="192.168.0.1" />
+
+        <Button
+            android:id="@+id/btn_host_ensure"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/rect_white_bg"
+            android:text="@string/ensure" />
+
+        <Button
+            android:id="@+id/btn_detection_upgrade"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rect_white_bg"
+            android:text="@string/detection_upgrade" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ntv_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/local_client"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ntv_server"
+        app:layout_constraintTop_toBottomOf="@+id/nll_server" />
+
+    <LinearLayout
+        android:id="@+id/nll_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/ntv_server"
+        app:layout_constraintTop_toBottomOf="@+id/ntv_local">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/local_ip_"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edt_local_ip"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_white_bg"
+            android:padding="1dp"
+            android:textSize="20sp"
+            tools:text="192.168.0.1" />
+
+        <Button
+            android:id="@+id/btn_local_ensure"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/rect_white_bg"
+            android:text="@string/ensure" />
+
+        <Button
+            android:id="@+id/btn_clear_cache"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rect_white_bg"
+            android:text="@string/clear_cache" />
+
+        <Button
+            android:id="@+id/btn_other_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rect_white_bg"
+            android:text="@string/other_settings" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nll_cache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/ntv_server"
+        app:layout_constraintTop_toBottomOf="@+id/nll_local">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cache_"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/cb_cache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:text="@string/checkbox_cache"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

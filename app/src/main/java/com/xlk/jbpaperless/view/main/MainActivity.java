@@ -31,6 +31,8 @@ import com.xlk.jbpaperless.R;
 import com.xlk.jbpaperless.base.BaseActivity;
 import com.xlk.jbpaperless.model.Constant;
 import com.xlk.jbpaperless.model.GlobalValue;
+import com.xlk.jbpaperless.util.IniUtil;
+import com.xlk.jbpaperless.view.config.ConfigActivity;
 import com.xlk.jbpaperless.view.main.fragment.BindMemberFragment;
 import com.xlk.jbpaperless.view.meet.MeetingActivity;
 
@@ -84,6 +86,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         tvWeek = (TextView) findViewById(R.id.tv_week);
         tvTime = (TextView) findViewById(R.id.tv_time);
         tvStatus = (TextView) findViewById(R.id.tv_status);
+        LogUtils.e(TAG, "tvStatus是否为null" + (tvStatus == null));
 
         tvMeetName = (TextView) findViewById(R.id.tv_meet_name);
         tvMemberName = (TextView) findViewById(R.id.tv_member_name);
@@ -93,7 +96,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         btnEnterMeet = (Button) findViewById(R.id.btn_enter_meet);
         fl_main = (FrameLayout) findViewById(R.id.fl_main);
         tvStatus.setOnClickListener(v -> {
-            // TODO: 2021/3/18 进入设置ip地址页面
+            if (GlobalValue.iniFileLoaded) {
+                ActivityUtils.startActivity(ConfigActivity.class);
+            } else {
+                LogUtils.e(TAG, "ini文件未加载完成 文件是否存在=" + (FileUtils.isFileExists(Constant.root_dir + "client.ini")));
+            }
         });
         btnEnterMeet.setOnClickListener(v -> {
             if (!XXPermissions.hasPermission(this, Manifest.permission.SYSTEM_ALERT_WINDOW)) {
@@ -313,6 +320,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 softver = packageInfo.versionName.substring(packageInfo.versionName.indexOf(".") + 1);
             }
             if (ini.loadFile()) {
+                GlobalValue.iniFileLoaded = true;
+                LogUtils.i(TAG, "ini文件加载完毕");
                 String iniHardver = ini.get("selfinfo", "hardver");
                 String iniSoftver = ini.get("selfinfo", "softver");
                 String lastTime = ini.get("other", "lastTime");
@@ -345,15 +354,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void updateOnlineStatus(boolean isOnline) {
         LogUtils.d(TAG, "updateOnlineStatus 是否在线=" + isOnline);
-        if (isOnline) {
-            tvStatus.setText(getString(R.string.online));
-        } else {
-            tvStatus.setText(getString(R.string.offline));
-        }
+        tvStatus.setText(isOnline ? getString(R.string.online) : getString(R.string.offline));
     }
 
-    private void changeUi(boolean isSignInPage) {
-        if (isSignInPage) {
+    private void changeUi(boolean isMainPage) {
+        if (isMainPage) {
             fl_main.setVisibility(View.GONE);
             btnEnterMeet.setVisibility(View.VISIBLE);
             tvMeetName.setVisibility(View.VISIBLE);
@@ -412,7 +417,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             showFragment(1);
         }
     }
-
 
     @Override
     public void readySignIn() {

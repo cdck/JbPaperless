@@ -776,4 +776,13 @@
     <string name="meeting_time_">会议时间：</string>
     <string name="meeting_host_">会议主持人：</string>
     <string name="member__">参会人员：</string>
+    <string name="server">服务器</string>
+    <string name="host_ip_">主机IP：</string>
+    <string name="detection_upgrade">检测升级</string>
+    <string name="local_client">本机（客户端）</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="other_settings">其它设置</string>
+    <string name="cache_">缓存&#032;&#032;：</string>
+    <string name="checkbox_cache">开启后，进入会议后客户端自动下载缓存会议资料</string>
+    <string name="local_ip_">本机IP：</string>
 </resources>

@@ -9,6 +9,7 @@ import android.os.Environment;
 public class Constant {
     public static final String root_dir = Environment.getExternalStorageDirectory().getAbsolutePath() + "/JbPaperless/";
     public static final String logcat_dir = root_dir + "myLog";
+    public static final String error_log_dir = root_dir + "ErrorLog";
     public static final String file_dir = root_dir + "文件/";
     public static final String download_dir = file_dir + "下载文件/";
     public static final String export_dir = file_dir + "导出文件/";

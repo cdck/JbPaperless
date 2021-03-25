@@ -40,6 +40,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         super.onNewIntent(intent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        presenter.queryOnlineStatus();
+    }
+
     /**
      * 通过子类获取布局资源文件
      * @return 布局资源文件

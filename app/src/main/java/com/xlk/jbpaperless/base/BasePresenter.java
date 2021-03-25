@@ -38,6 +38,7 @@ public abstract class BasePresenter<T extends BaseContract.View> {
         queryMember();
         queryDevice();
         queryMemberDetailed();
+        queryOnlineStatus();
     }
 
     public void register() {
@@ -157,22 +158,7 @@ public abstract class BasePresenter<T extends BaseContract.View> {
      * 查询设备在线状态
      */
     public void queryOnlineStatus() {
-        mView.updateOnlineStatus(isOnline());
-    }
-
-    public boolean isOnline() {
-        boolean isOnline = false;
-        byte[] bytes = jni.queryDevicePropertiesById(InterfaceMacro.Pb_MeetDevicePropertyID.Pb_MEETDEVICE_PROPERTY_NETSTATUS_VALUE, 0);
-        if (bytes != null) {
-            try {
-                InterfaceDevice.pbui_DeviceInt32uProperty info = InterfaceDevice.pbui_DeviceInt32uProperty.parseFrom(bytes);
-                int propertyval = info.getPropertyval();
-                isOnline = propertyval == 1;
-            } catch (InvalidProtocolBufferException e) {
-                e.printStackTrace();
-            }
-        }
-        return isOnline;
+        mView.updateOnlineStatus(jni.isOnline());
     }
 
     /**

@@ -10,7 +10,7 @@ import java.util.List;
  * @desc
  */
 public class GlobalValue {
-    public static int screen_width, screen_height, camera_width=1280, camera_height=720;
+    public static int screen_width, screen_height, camera_width = 1280, camera_height = 720;
 
     /**
      * 是否初始化完成
@@ -58,4 +58,8 @@ public class GlobalValue {
      * 本机的权限
      */
     public static int localPermission;
+    /**
+     * =true加载ini文件成功
+     */
+    public static boolean iniFileLoaded = false;
 }

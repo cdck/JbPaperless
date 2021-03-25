@@ -18,6 +18,7 @@ import com.blankj.utilcode.util.Utils;
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.TbsDownloader;
 import com.tencent.smtt.sdk.TbsListener;
+import com.xlk.jbpaperless.helper.CrashHandler;
 import com.xlk.jbpaperless.helper.MyRejectedExecutionHandler;
 import com.xlk.jbpaperless.helper.NamingThreadFactory;
 import com.xlk.jbpaperless.helper.ScreenRecorder;
@@ -79,6 +80,7 @@ public class App extends Application {
         config.setSaveDays(7);
 //        AutoSizeConfig.getInstance().getUnitsManager().setSupportSP(false);
         initScreenParam();
+        CrashHandler.getInstance().init(this);
         lbm = LocalBroadcastManager.getInstance(getApplicationContext());
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constant.ACTION_START_SCREEN_RECORD);
