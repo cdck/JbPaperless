@@ -12,6 +12,7 @@ import com.xlk.jbpaperless.R;
 import com.xlk.jbpaperless.model.EventMessage;
 import com.xlk.jbpaperless.model.EventType;
 import com.xlk.jbpaperless.view.agenda.AgendaActivity;
+import com.xlk.jbpaperless.view.draw.DrawActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -87,28 +88,29 @@ public class MeetMenuFragment extends Fragment implements View.OnClickListener {
             case R.id.iv_issue: {
                 break;
             }
-            case R.id.tv_other1: {
+            case R.id.tv_file: {
                 break;
             }
-            case R.id.tv_other2: {
+            case R.id.tv_annotation_file: {
                 break;
             }
-            case R.id.tv_other3: {
+            case R.id.tv_member: {
                 break;
             }
-            case R.id.tv_other4: {
+            case R.id.tv_vote: {
                 break;
             }
-            case R.id.tv_other5: {
+            case R.id.tv_draw: {
+                startActivity(new Intent(getContext(), DrawActivity.class));
                 break;
             }
-            case R.id.tv_other6: {
+            case R.id.tv_web: {
                 break;
             }
-            case R.id.tv_other7: {
+            case R.id.tv_video: {
                 break;
             }
-            case R.id.tv_other8: {
+            case R.id.tv_service: {
                 break;
             }
             default:

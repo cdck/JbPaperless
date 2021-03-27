@@ -3,6 +3,8 @@ package com.xlk.jbpaperless.view.agenda;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.InputDevice;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -25,7 +27,7 @@ import static com.xlk.jbpaperless.App.appContext;
  * @date 2021/3/22
  * @desc: 查看会议议程
  */
-public class AgendaActivity extends BaseActivity<AgendaPresenter> implements AgendaContract.View, TbsReaderView.ReaderCallback {
+public class AgendaActivity extends BaseActivity<AgendaPresenter> implements AgendaContract.View, TbsReaderView.ReaderCallback, View.OnGenericMotionListener {
     /**
      * =true 加载的是系统内核（默认），=false 加载的是X5内核
      */
@@ -95,6 +97,7 @@ public class AgendaActivity extends BaseActivity<AgendaPresenter> implements Age
         progressBar.setVisibility(View.GONE);
         String tempPath = Environment.getExternalStorageDirectory().getPath();
         tbsReaderView = new TbsReaderView(this, this);
+//        tbsReaderView.setOnGenericMotionListener(this);
         agendaRoot.addView(tbsReaderView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
         Bundle bundle = new Bundle();
@@ -128,5 +131,28 @@ public class AgendaActivity extends BaseActivity<AgendaPresenter> implements Age
             tbsReaderView.onStop();
             tbsReaderView = null;
         }
+    }
+
+    @Override
+    public boolean onGenericMotion(View v, MotionEvent event) {
+        LogUtils.e(TAG,"onGenericMotion");
+//The input source is a pointing device associated with a display.
+//输入源为可显示的指针设备，如：mouse pointing device(鼠标指针),stylus pointing device(尖笔设备)
+        if (0 != (event.getSource() & InputDevice.SOURCE_CLASS_POINTER)) {
+            switch (event.getAction()) {
+                // process the scroll wheel movement...处理滚轮事件
+                case MotionEvent.ACTION_SCROLL:
+                    //获得垂直坐标上的滚动方向,也就是滚轮向下滚
+                    if (event.getAxisValue(MotionEvent.AXIS_VSCROLL) < 0.0f) {
+                        LogUtils.i("fortest::onGenericMotionEvent", "down");
+                    }
+                    //获得垂直坐标上的滚动方向,也就是滚轮向上滚
+                    else {
+                        LogUtils.i("fortest::onGenericMotionEvent", "up");
+                    }
+                    return true;
+            }
+        }
+        return super.onGenericMotionEvent(event);
     }
 }

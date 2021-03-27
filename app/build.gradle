@@ -95,4 +95,6 @@ dependencies {
     //https://github.com/ogaclejapan/SmartTabLayout
     implementation 'com.ogaclejapan.smarttablayout:library:2.0.0'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
+    //多功能SeekBar：https://github.com/Jay-Goo/RangeSeekBar
+    implementation 'com.github.Jay-Goo:RangeSeekBar:3.0.0'
 }

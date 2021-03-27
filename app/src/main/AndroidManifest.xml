@@ -24,11 +24,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JbPaperless"
         tools:ignore="LockedOrientationActivity">
+        <activity android:name=".view.draw.DrawActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".view.config.ConfigActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity android:name=".view.agenda.AgendaActivity"
+        <activity
+            android:name=".view.agenda.AgendaActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".view.main.MainActivity"

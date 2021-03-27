@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.draw.DrawActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_draw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_start_tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_draw_pen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_draw_pen" />
+
+        <ImageView
+            android:id="@+id/iv_draw_eraser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_eraser" />
+
+        <ImageView
+            android:id="@+id/iv_draw_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_arrow" />
+
+        <ImageView
+            android:id="@+id/iv_draw_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_text" />
+
+        <ImageView
+            android:id="@+id/iv_draw_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_picture" />
+
+        <ImageView
+            android:id="@+id/iv_draw_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_circle" />
+
+        <ImageView
+            android:id="@+id/iv_draw_rect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_rect" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_end_tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_start_tools"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ll_start_tools">
+
+        <ImageView
+            android:id="@+id/iv_draw_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_draw_exit" />
+
+        <ImageView
+            android:id="@+id/iv_draw_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_save" />
+
+        <ImageView
+            android:id="@+id/iv_draw_revoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_revoke" />
+
+        <ImageView
+            android:id="@+id/iv_draw_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_clear" />
+
+        <ImageView
+            android:id="@+id/iv_draw_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_color" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.jaygoo.widget.VerticalRangeSeekBar
+                android:id="@+id/sb_text_size"
+                android:layout_width="30dp"
+                android:layout_height="120dp"
+                android:visibility="visible"
+                app:rsb_max="6"
+                app:rsb_mode="single"
+                app:rsb_orientation="right" />
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <com.jaygoo.widget.VerticalRangeSeekBar
+                android:id="@+id/vertical_seb"
+                android:layout_width="30dp"
+                android:layout_height="150dp"
+                android:visibility="gone"
+                app:rsb_gravity="center"
+                app:rsb_max="30"
+                app:rsb_mode="single"
+                app:rsb_progress_color="@color/colorAccent"
+                app:rsb_step_auto_bonding="true"
+                app:rsb_step_color="@color/colorAccent"
+                app:rsb_step_height="10dp"
+                app:rsb_step_radius="5dp"
+                app:rsb_step_width="10dp"
+                app:rsb_steps="5"
+                app:rsb_thumb_drawable="@drawable/thumb_green"
+                app:rsb_thumb_height="18dp"
+                app:rsb_thumb_scale_ratio="1.25"
+                app:rsb_thumb_width="18dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
