@@ -1,5 +1,7 @@
 package com.xlk.jbpaperless.model;
 
+import android.graphics.Bitmap;
+
 import com.mogujie.tt.protobuf.InterfaceMember;
 
 import java.util.ArrayList;
@@ -62,4 +64,6 @@ public class GlobalValue {
      * =true加载ini文件成功
      */
     public static boolean iniFileLoaded = false;
+    public static Bitmap screenShotBitmap;
+    public static int operid;
 }

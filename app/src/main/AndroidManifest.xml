@@ -24,17 +24,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JbPaperless"
         tools:ignore="LockedOrientationActivity">
-        <activity android:name=".view.draw.DrawActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".view.draw.DrawActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".view.config.ConfigActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".view.agenda.AgendaActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="landscape" />
         <activity
             android:name=".view.main.MainActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +48,11 @@
         </activity>
         <activity
             android:name=".view.meet.MeetingActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="landscape" />
+
+        <service android:name=".service.FabService"/>
+        <service android:name=".service.BackService"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

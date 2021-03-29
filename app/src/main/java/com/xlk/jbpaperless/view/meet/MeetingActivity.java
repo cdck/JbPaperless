@@ -14,6 +14,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.mogujie.tt.protobuf.InterfaceDevice;
+import com.mogujie.tt.protobuf.InterfaceMacro;
 import com.mogujie.tt.protobuf.InterfaceMember;
 import com.xlk.jbpaperless.R;
 import com.xlk.jbpaperless.adapter.PagerAdapter;
@@ -81,6 +82,8 @@ public class MeetingActivity extends BaseActivity<MeetingPresenter> implements M
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        jni.modifyContextProperties(InterfaceMacro.Pb_ContextPropertyID.Pb_MEETCONTEXT_PROPERTY_ROLE_VALUE,
+                InterfaceMacro.Pb_MeetFaceStatus.Pb_MemState_MemFace_VALUE);
         presenter.queryDeviceMeetInfo();
         presenter.queryMember();
         initViewPager();
@@ -231,5 +234,18 @@ public class MeetingActivity extends BaseActivity<MeetingPresenter> implements M
         if (popMeetingMessage != null && popMeetingMessage.isShowing()) {
             tvMeetingPlace.setText(mMeetingAddr);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //  修改本机界面状态
+        jni.modifyContextProperties(InterfaceMacro.Pb_ContextPropertyID.Pb_MEETCONTEXT_PROPERTY_ROLE_VALUE,
+                InterfaceMacro.Pb_MeetFaceStatus.Pb_MemState_MainFace_VALUE);
     }
 }

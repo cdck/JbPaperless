@@ -57,6 +57,13 @@ public abstract class BasePresenter<T extends BaseContract.View> {
     public void onEventMessage(EventMessage msg) throws InvalidProtocolBufferException {
         busEvent(msg);
         switch (msg.getType()) {
+            //设备寄存器变更通知
+            case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_DEVICEINFO_VALUE: {
+                LogUtils.i(TAG, "BusEvent -->" + "设备寄存器变更通知");
+                queryDevice();
+                queryOnlineStatus();
+                break;
+            }
             //参会人员变更通知
             case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_MEMBER_VALUE: {
                 byte[] o = (byte[]) msg.getObjects()[0];
@@ -66,13 +73,6 @@ public abstract class BasePresenter<T extends BaseContract.View> {
                 LogUtils.i(TAG, "BusEvent -->" + "参会人员变更通知 id= " + id + ", opermethod= " + opermethod);
                 queryMember();
                 queryMemberDetailed();
-                break;
-            }
-            //设备寄存器变更通知
-            case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_DEVICEINFO_VALUE: {
-                LogUtils.i(TAG, "BusEvent -->" + "设备寄存器变更通知");
-                queryDevice();
-                queryOnlineStatus();
                 break;
             }
             default:
@@ -92,6 +92,7 @@ public abstract class BasePresenter<T extends BaseContract.View> {
         }
         mView.updateMemberList(memberInfos);
     }
+
 
     /**
      * 查询所有的设备

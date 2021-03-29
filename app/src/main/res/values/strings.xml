@@ -637,7 +637,7 @@
     <string name="draw_eraser">橡皮</string>
     <string name="draw_drag">拖动</string>
     <string name="please_enter_file_name">请输入文件名</string>
-    <string name="save_server">服务器</string>
+    <string name="save_server">上传服务器</string>
     <string name="save_local">保存本地</string>
     <string name="tip_save_as">保存在 %1$s</string>
     <string name="title_whether_agree_join">是否同意加入 %1$s 发起的白板批注？</string>

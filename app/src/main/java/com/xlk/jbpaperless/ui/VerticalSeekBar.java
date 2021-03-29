@@ -146,6 +146,7 @@ public class VerticalSeekBar extends AppCompatSeekBar {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 getResources().getDisplayMetrics());
     }
+
     /**
      * sp转px
      *

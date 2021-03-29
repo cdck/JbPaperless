@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
@@ -84,6 +85,7 @@ public class BindMemberFragment extends BaseFragment<BindMemberPresenter> implem
 
     @Override
     public void updateMemberDetailList(List<InterfaceMember.pbui_Item_MeetMemberDetailInfo> memberDetailInfos) {
+        LogUtils.e(TAG, "updateMemberDetailList memberDetailInfos.size=" + memberDetailInfos.size());
         if (memberAdapter == null) {
             memberAdapter = new DetailedMemberAdapter(memberDetailInfos);
             pagerGridLayoutManager = new PagerGridLayoutManager(2, 6, PagerGridLayoutManager.HORIZONTAL);
@@ -91,20 +93,6 @@ public class BindMemberFragment extends BaseFragment<BindMemberPresenter> implem
             // 2.设置滚动辅助工具
             PagerGridSnapHelper pageSnapHelper = new PagerGridSnapHelper();
             pageSnapHelper.attachToRecyclerView(rvMember);
-//            pagerGridLayoutManager.setPageListener(new PagerGridLayoutManager.PageListener() {
-//                @Override
-//                public void onPageSizeChanged(int pageSize) {
-//                    LogUtils.d(TAG, "总页数=" + pageSize);
-//                }
-//
-//                @Override
-//                public void onPageSelect(int pageIndex) {
-//                    LogUtils.d(TAG, "选中页码=" + pageIndex);
-//                }
-//            });
-
-//            StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL);
-//            rvMember.setLayoutManager(layoutManager);
             rvMember.setAdapter(memberAdapter);
             memberAdapter.setOnItemClickListener(new OnItemClickListener() {
                 @Override

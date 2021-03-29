@@ -31,7 +31,11 @@ public class IniUtil {
 
     public static IniUtil getInstance() {
         if (instance == null) {
-            instance = new IniUtil();
+            synchronized (IniUtil.class) {
+                if (instance == null) {
+                    instance = new IniUtil();
+                }
+            }
         }
         return instance;
     }
@@ -41,9 +45,10 @@ public class IniUtil {
         try {
             ini.load(new FileReader(iniFile));
             this.file = iniFile;
+            LogUtils.e("ini文件加载成功");
             return true;
         } catch (IOException e) {
-            LogUtils.e("IniUtil","loadFile异常："+e);
+            LogUtils.e("IniUtil", "loadFile异常：" + e);
             e.printStackTrace();
         }
         return false;
@@ -71,7 +76,7 @@ public class IniUtil {
             try {
                 ini.store(file);
             } catch (IOException e) {
-                LogUtils.e("IniUtil","store方法提交到ini文件中失败");
+                LogUtils.e("IniUtil", "store方法提交到ini文件中失败");
                 e.printStackTrace();
             }
         }

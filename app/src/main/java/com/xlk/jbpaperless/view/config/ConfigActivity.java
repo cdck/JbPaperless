@@ -104,8 +104,12 @@ public class ConfigActivity extends BaseActivity<ConfigPresenter> implements Con
     protected void init(Bundle savedInstanceState) {
         String localIp = ini.get("areaaddr", "area0ip");
         String autoCache = ini.get("other", "autoCache");
-        int i = Integer.parseInt(autoCache);
-        edtLocalIp.setText(localIp);
-        cbCache.setChecked(i == 1);
+        if (!localIp.isEmpty()) {
+            edtLocalIp.setText(localIp);
+        }
+        if (!autoCache.isEmpty()) {
+            int i = Integer.parseInt(autoCache);
+            cbCache.setChecked(i == 1);
+        }
     }
 }

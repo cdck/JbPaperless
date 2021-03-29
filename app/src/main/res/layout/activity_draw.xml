@@ -84,6 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ll_start_tools">
 
+
         <ImageView
             android:id="@+id/iv_draw_exit"
             android:layout_width="wrap_content"
@@ -118,48 +119,75 @@
             android:layout_marginTop="2dp"
             android:src="@drawable/icon_draw_color" />
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/iv_draw_launch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_color" />
+
+        <ImageView
+            android:id="@+id/iv_draw_drag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/icon_draw_color" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/ll_end_tools"
+        app:layout_constraintStart_toStartOf="@+id/ll_end_tools"
+        app:layout_constraintTop_toBottomOf="@+id/ll_end_tools">
+
+        <com.jaygoo.widget.VerticalRangeSeekBar
+            android:id="@+id/sb_text_size"
+            android:layout_width="30dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:rsb_gravity="center"
+            app:rsb_max="30"
+            app:rsb_min="1"
+            app:rsb_mode="single"
+            app:rsb_orientation="right"
+            app:rsb_thumb_drawable="@drawable/thumb_green" />
+
+        <TextView
+            android:id="@+id/tv_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:text="1"
+            android:visibility="visible" />
 
-            <com.jaygoo.widget.VerticalRangeSeekBar
-                android:id="@+id/sb_text_size"
-                android:layout_width="30dp"
-                android:layout_height="120dp"
-                android:visibility="visible"
-                app:rsb_max="6"
-                app:rsb_mode="single"
-                app:rsb_orientation="right" />
-
-            <TextView
-                android:id="@+id/tv_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1" />
-
-            <com.jaygoo.widget.VerticalRangeSeekBar
-                android:id="@+id/vertical_seb"
-                android:layout_width="30dp"
-                android:layout_height="150dp"
-                android:visibility="gone"
-                app:rsb_gravity="center"
-                app:rsb_max="30"
-                app:rsb_mode="single"
-                app:rsb_progress_color="@color/colorAccent"
-                app:rsb_step_auto_bonding="true"
-                app:rsb_step_color="@color/colorAccent"
-                app:rsb_step_height="10dp"
-                app:rsb_step_radius="5dp"
-                app:rsb_step_width="10dp"
-                app:rsb_steps="5"
-                app:rsb_thumb_drawable="@drawable/thumb_green"
-                app:rsb_thumb_height="18dp"
-                app:rsb_thumb_scale_ratio="1.25"
-                app:rsb_thumb_width="18dp" />
-        </LinearLayout>
+        <com.jaygoo.widget.VerticalRangeSeekBar
+            android:id="@+id/vertical_seb"
+            android:layout_width="30dp"
+            android:layout_height="120dp"
+            android:visibility="gone"
+            app:rsb_gravity="center"
+            app:rsb_max="6"
+            app:rsb_mode="single"
+            app:rsb_orientation="right"
+            app:rsb_progress_color="@color/colorAccent"
+            app:rsb_step_auto_bonding="true"
+            app:rsb_step_color="@color/colorAccent"
+            app:rsb_step_height="10dp"
+            app:rsb_step_radius="5dp"
+            app:rsb_step_width="10dp"
+            app:rsb_steps="5"
+            app:rsb_thumb_drawable="@drawable/thumb_green"
+            app:rsb_thumb_height="18dp"
+            app:rsb_thumb_scale_ratio="1.25"
+            app:rsb_thumb_width="18dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

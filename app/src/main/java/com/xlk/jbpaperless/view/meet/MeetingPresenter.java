@@ -54,6 +54,13 @@ public class MeetingPresenter extends BasePresenter<MeetingContract.View> implem
     @Override
     protected void busEvent(EventMessage msg) throws InvalidProtocolBufferException {
         switch (msg.getType()) {
+            //设备寄存器变更通知
+            /*case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_DEVICEINFO_VALUE: {
+                LogUtils.i(TAG, "BusEvent -->" + "设备寄存器变更通知");
+                queryDevice();
+                queryOnlineStatus();
+                break;
+            }*/
             //设备会议信息变更通知
             case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_DEVICEFACESHOW_VALUE: {
                 LogUtils.i(TAG, "BusEvent -->" + "设备会议信息变更通知");

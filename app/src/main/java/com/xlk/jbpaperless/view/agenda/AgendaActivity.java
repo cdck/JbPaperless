@@ -37,6 +37,7 @@ public class AgendaActivity extends BaseActivity<AgendaPresenter> implements Age
     private android.widget.ScrollView agendaSv;
     private android.widget.TextView agendaTv;
     private TbsReaderView tbsReaderView;
+    private TextView tvPageTitle;
 
     @Override
     protected int getLayoutId() {
@@ -45,10 +46,14 @@ public class AgendaActivity extends BaseActivity<AgendaPresenter> implements Age
 
     @Override
     protected void initView() {
+        tvPageTitle = (TextView) findViewById(R.id.tv_page_title);
         agendaRoot = (LinearLayout) findViewById(R.id.agenda_root);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         agendaSv = (ScrollView) findViewById(R.id.agenda_sv);
         agendaTv = (TextView) findViewById(R.id.agenda_tv);
+        findViewById(R.id.iv_close).setOnClickListener(v->{
+            finish();
+        });
     }
 
     @Override
@@ -58,7 +63,7 @@ public class AgendaActivity extends BaseActivity<AgendaPresenter> implements Age
 
     @Override
     protected void init(Bundle savedInstanceState) {
-
+        tvPageTitle.setText(getString(R.string.meeting_agenda));
     }
 
     @Override

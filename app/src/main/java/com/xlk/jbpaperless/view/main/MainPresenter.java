@@ -62,8 +62,8 @@ class MainPresenter extends BasePresenter<MainContract.View> implements MainCont
         jni.InitAndCapture(0, 2);
         jni.InitAndCapture(0, 3);
         cacheData();
-        queryDeviceMeetInfo();
         initialData();
+        queryDeviceMeetInfo();
     }
 
     private void cacheData() {
@@ -136,6 +136,25 @@ class MainPresenter extends BasePresenter<MainContract.View> implements MainCont
                 }
                 break;
             }
+            //平台初始化结果
+            case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_READY_VALUE: {
+                int method = msg.getMethod();
+                byte[] bytes = (byte[]) msg.getObjects()[0];
+                if (method == InterfaceMacro.Pb_Method.Pb_METHOD_MEET_INTERFACE_NOTIFY_VALUE) {
+                    InterfaceBase.pbui_Ready error = InterfaceBase.pbui_Ready.parseFrom(bytes);
+                    int areaid = error.getAreaid();
+                    GlobalValue.initializationIsOver = true;
+                    LogUtils.i(TAG, "BusEvent -->" + "平台初始化完毕 连接上的区域服务器ID=" + areaid);
+                    ToastUtils.showShort(R.string.error_0);
+                    initial();
+                } else if (method == InterfaceMacro.Pb_Method.Pb_METHOD_MEET_INTERFACE_LOGON_VALUE) {
+                    InterfaceBase.pbui_Type_LogonError error = InterfaceBase.pbui_Type_LogonError.parseFrom(bytes);
+                    int errcode = error.getErrcode();
+                    GlobalValue.initializationIsOver = false;
+                    LogUtils.i(TAG, "BusEvent -->" + "平台初登陆失败通知 errcode=" + errcode);
+                }
+                break;
+            }
             //时间回调
             case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_TIME_VALUE: {
                 Object[] objs = msg.getObjects();
@@ -173,6 +192,13 @@ class MainPresenter extends BasePresenter<MainContract.View> implements MainCont
                 }
                 break;
             }
+            //设备寄存器变更通知
+            /*case InterfaceMacro.Pb_Type.Pb_TYPE_MEET_INTERFACE_DEVICEINFO_VALUE: {
+                LogUtils.i(TAG, "BusEvent -->" + "设备寄存器变更通知");
+                queryDevice();
+                queryOnlineStatus();
+                break;
+            }*/
             default:
                 break;
         }
@@ -222,13 +248,14 @@ class MainPresenter extends BasePresenter<MainContract.View> implements MainCont
                 break;
         }
         if (!msg.isEmpty()) {
-            ToastUtils.showShort(msg);
+            LogUtils.e(TAG,msg);
+//            ToastUtils.showShort(msg);
         }
         //平台初始化成功
-        if (code == InterfaceMacro.Pb_ValidateErrorCode.Pb_PARSER_ERROR_NONE_VALUE) {
-            GlobalValue.initializationIsOver = true;
-            initial();
-        }
+//        if (code == InterfaceMacro.Pb_ValidateErrorCode.Pb_PARSER_ERROR_NONE_VALUE) {
+//            GlobalValue.initializationIsOver = true;
+//            initial();
+//        }
     }
 
     private void queryDeviceMeetInfo() {
